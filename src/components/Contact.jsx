@@ -8,7 +8,7 @@ export default function Contact() {
           Have a project, internship, or idea you want to discuss? Feel free to reach out!
         </p>
         <a
-          href="mailto:shivanshgargme@gmail.com"
+          href="mailto:shivanshgarg2005@gmail.com"
           className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-2 rounded-full font-semibold transition"
         >
           Email Me
@@ -22,7 +22,7 @@ export default function Contact() {
             GitHub
           </a>
           <a
-            href="https://linkedin.com/in/shivansh-garg-12345678"
+            href="https://linkedin.com/in/shivansh-garg-22113a294"
             target="_blank"
             className="hover:text-cyan-400 transition"
           >
