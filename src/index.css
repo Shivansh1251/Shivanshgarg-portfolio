@@ -33,19 +33,23 @@
     background-color: #ffffff !important;
 }
 
-.light .bg-gray-900\/50 {
+.light .bg-gray-900\/50,
+.light [class*="bg-gray-900/50"] {
     background-color: rgba(248, 250, 252, 0.8) !important;
 }
 
-.light .bg-gray-800\/30 {
+.light .bg-gray-800\/30,
+.light [class*="bg-gray-800/30"] {
     background-color: rgba(226, 232, 240, 0.6) !important;
 }
 
-.light .bg-gray-800\/50 {
+.light .bg-gray-800\/50,
+.light [class*="bg-gray-800/50"] {
     background-color: rgba(226, 232, 240, 0.8) !important;
 }
 
-.light .bg-gray-700\/50 {
+.light .bg-gray-700\/50,
+.light [class*="bg-gray-700/50"] {
     background-color: rgba(203, 213, 225, 0.8) !important;
 }
 
@@ -413,17 +417,24 @@ textarea {
 
 /* Enhanced Glassmorphism */
 .glass-card {
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    transform-style: preserve-3d;
-    border-radius: 28px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  border-radius: 28px;
 }
 
-/* Consistent Button Styling */
+/* Light mode glass cards */
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.8) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+}/* Consistent Button Styling */
 .modern-button {
     position: relative;
     overflow: hidden;

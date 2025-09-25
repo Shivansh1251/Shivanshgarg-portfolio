@@ -39,38 +39,38 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 relative">
+    <section id="projects" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6">
             <span className="text-gradient">Featured</span> Projects
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-400 light:text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
             Showcasing my latest work in web development and digital innovation
           </p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((proj, index) => (
             <div
               key={index}
-              className="glass-card rounded-3xl p-6 sm:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-3d group"
+              className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 group"
             >
               {/* Project Header */}
-              <div className={`h-2 w-full bg-gradient-to-r ${proj.gradient} rounded-full mb-6`}></div>
+              <div className={`h-1.5 sm:h-2 w-full bg-gradient-to-r ${proj.gradient} rounded-full mb-4 sm:mb-6`}></div>
               
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4 group-hover:text-gradient transition-all duration-300">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 text-white light:text-gray-800 group-hover:text-gradient transition-all duration-300">
                 {proj.title}
               </h3>
               
-              <p className="text-gray-300 mb-6 leading-relaxed text-lg">{proj.desc}</p>
+              <p className="text-gray-300 light:text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base lg:text-lg">{proj.desc}</p>
               
               {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4 sm:mb-6">
                 {proj.tech.map((tech, techIndex) => (
                   <span
                     key={techIndex}
-                    className="px-3 py-1 text-sm bg-gray-800/50 text-cyan-400 rounded-full border border-cyan-400/20"
+                    className="px-2 sm:px-3 py-1 text-xs sm:text-sm bg-gray-800/50 light:bg-gray-200/80 text-cyan-400 light:text-cyan-600 rounded-full border border-cyan-400/20 light:border-cyan-600/30"
                   >
                     {tech}
                   </span>
@@ -81,10 +81,10 @@ export default function Projects() {
                 href={proj.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="modern-button inline-flex items-center gap-2 text-white bg-gradient-to-r from-gray-700 to-gray-600 px-6 py-3 rounded-full font-semibold hover:from-gray-600 hover:to-gray-500 transition-all duration-300"
+                className={`inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all duration-300 hover:scale-105 bg-gradient-to-r ${proj.gradient} text-white hover:shadow-lg hover:shadow-purple-500/25 w-full sm:w-auto`}
               >
                 View Project
-                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </a>
