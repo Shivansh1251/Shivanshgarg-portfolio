@@ -1,4 +1,437 @@
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Modern Font */
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+/* 3D Page Setup */
+html {
+  perspective: 2000px;
+  cursor: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="6" fill="rgba(168,85,247,0.9)" stroke="white" stroke-width="1.5"/></svg>') 10 10, auto;
+}
+
+body {
+  transform-style: preserve-3d;
+  cursor: inherit;
+}
+
+/* Modern cursor styles for different elements */
+a, button {
+  cursor: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="6" fill="rgba(34,197,94,0.9)" stroke="white" stroke-width="1.5"/></svg>') 10 10, pointer;
+}
+
+/* Input elements */
+input, textarea {
+  cursor: text;
+}
+
+
+
+
+
+
+
+/* Text Highlighting Effects */
+.text-highlight {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.text-highlight:hover {
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+  transform: scale(1.02);
+}
+
+.text-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5px;
+  right: -5px;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+  border-radius: 8px;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.text-highlight:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Avatar Interaction */
+.avatar-container {
+  position: relative;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+.avatar-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.3), transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.avatar-container:hover .avatar-glow {
+  opacity: 1;
+  animation: avatarPulse 2s infinite;
+}
+
+@keyframes avatarPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Fix z-index for sections to ensure cursor visibility */
+.section-3d {
+  position: relative;
+  z-index: 1;
+}
+
+.modern-navbar {
+  position: fixed;
+  z-index: 1000;
+}
+
+
+
+/* Consistent Section Sizing and 3D Organization */
+.section-3d {
+  transform-style: preserve-3d;
+  transform: perspective(1500px) rotateX(1deg);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 120px;
+  position: relative;
+  padding: 100px 0;
+  z-index: auto;
+}
+
+.section-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border-radius: 32px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: -1;
+  transform: translateZ(-30px);
+}
+
+.section-3d:hover {
+  transform: perspective(1500px) rotateX(0deg) translateZ(15px);
+}
+
+/* Hero Section Enhanced */
+.hero-3d {
+  transform-style: preserve-3d;
+  perspective: 2000px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  transform: translateZ(40px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Consistent Typography Scaling */
+.hero-title {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+.hero-description {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Enhanced Contact Section */
+.contact-enhanced {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.05));
+  border-radius: 40px;
+  padding: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.contact-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) rotateY(2deg) rotateX(2deg);
+  box-shadow: 0 30px 80px rgba(168, 85, 247, 0.3);
+}
+
+.contact-button {
+  background: linear-gradient(135deg, #667eea, #764ba2, #a855f7);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.contact-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.4);
+}
+
+/* Modern Navbar Enhanced */
+.modern-navbar {
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(30px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 10px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  transform: translateZ(200px);
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+}
+
+.nav-link {
+  position: relative;
+  padding: 12px 20px;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  font-size: 1rem;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(236, 72, 153, 0.15));
+  border-radius: 20px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  transform: translateZ(-5px) scale(0.8);
+}
+
+.nav-link:hover::before {
+  opacity: 1;
+  transform: translateZ(0px) scale(1);
+}
+
+.nav-link:hover {
+  transform: translateY(-3px) translateZ(8px);
+  color: #a855f7;
+  text-shadow: 0 0 25px rgba(168, 85, 247, 0.8);
+}
+
+/* Enhanced Cards with Consistent Sizing */
+.card-3d-enhanced {
+  transform-style: preserve-3d;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  min-height: 300px;
+}
+
+.card-3d-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border-radius: 28px;
+  opacity: 0;
+  transition: all 0.6s ease;
+  transform: translateZ(-15px);
+}
+
+.card-3d-enhanced:hover {
+  transform: perspective(1000px) rotateY(5deg) rotateX(3deg) translateZ(25px);
+}
+
+.card-3d-enhanced:hover::before {
+  opacity: 1;
+  transform: translateZ(-8px);
+}
+
+/* Enhanced Glassmorphism */
+.glass-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 25px 80px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  border-radius: 28px;
+}
+
+/* Consistent Button Styling */
+.modern-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-style: preserve-3d;
+  font-size: 1.1rem;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.modern-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.modern-button:hover::before {
+  left: 100%;
+}
+
+.modern-button:hover {
+  transform: translateY(-3px) translateZ(10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(168, 85, 247, 0.4);
+}
+
+/* Enhanced Particles */
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: linear-gradient(45deg, rgba(168, 85, 247, 0.8), rgba(236, 72, 153, 0.6));
+  border-radius: 50%;
+  animation: particleFloat3d 30s infinite linear;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
+}
+
+@keyframes particleFloat3d {
+  0% {
+    transform: translateY(100vh) translateX(0) translateZ(0) rotateZ(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) translateX(80px) translateZ(30px) rotateZ(180deg);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(150px) translateZ(0) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+
+/* Enhanced Section Dividers */
+.section-divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.8), rgba(236, 72, 153, 0.8), transparent);
+  margin: 40px auto;
+  max-width: 300px;
+  position: relative;
+  border-radius: 2px;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 7px;
+  background: linear-gradient(45deg, #a855f7, #ec4899);
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 1);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .section-3d {
+    padding: 80px 0;
+    margin-bottom: 80px;
+  }
+  
+  .hero-content {
+    padding: 0 20px;
+  }
+  
+  .contact-enhanced {
+    padding: 40px 20px;
+  }
+  
+  .card-3d-enhanced {
+    min-height: 250px;
+  }
+}
