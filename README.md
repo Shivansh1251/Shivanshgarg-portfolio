@@ -1,151 +1,81 @@
-# Shivansh Garg - Portfolio Website
+# Shivansh Garg - Portfolio
 
-A modern, responsive portfolio website built with React, Vite, and Tailwind CSS. Showcasing my projects, skills, and experience as a full-stack developer.
+![Portfolio Preview](https://img.shields.io/badge/Portfolio-Live-brightgreen?style=for-the-badge&logo=vercel) 
+![Built with React](https://img.shields.io/badge/React-19-blue?style=for-the-badge&logo=react)
+![Styled with Tailwind](https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss)
 
-🌐 **Live Site**: [shivanshgarg.me](https://shivanshgarg.me)
+> **Full-Stack Developer | Open Source Contributor | Cloud Enthusiast**
 
-## 🚀 Features
+Welcome to my digital space! I'm a passionate developer who loves creating scalable web applications and contributing to the open-source community.
 
-- **Modern Design**: Clean, responsive UI with smooth animations
-- **Fast Performance**: Built with Vite for lightning-fast development and builds
-- **Mobile Responsive**: Optimized for all device sizes
-- **Interactive Components**: Smooth scrolling navigation and hover effects
-- **Project Showcase**: Detailed project cards with links to GitHub repositories
-- **Skills Display**: Visual representation of technical skills
-- **Contact Section**: Easy ways to get in touch
+## 🌐 **Live Portfolio**
+**[shivanshgarg.me](https://shivanshgarg.me)** - Experience my work in action
 
-## 🛠️ Tech Stack
+## 🚀 **What You'll Find**
 
-- **Frontend**: React 19, Tailwind CSS 4
-- **Build Tool**: Vite
-- **Deployment**: GitHub Pages with custom domain
-- **Development**: ESLint for code quality
+- **💼 Featured Projects**: Showcasing real-world applications I've built
+- **🛠️ Technical Skills**: My expertise across the full-stack development spectrum  
+- **👨‍💻 About Me**: My journey in software development and technology
+- **📬 Get In Touch**: Multiple ways to connect and collaborate
 
-## 📂 Project Structure
+## 🛠️ **Built With**
 
-```
-shivanshgarg-portfolio/
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Skills.jsx
-│   │   └── Contact.jsx
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── public/
-│   └── Avtar.png
-├── package.json
-├── vite.config.js
-└── README.md
-```
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 
-## 🏃‍♂️ Getting Started
+## � **Responsive Design**
 
-### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
+Optimized experience across all devices:
+- 📱 **Mobile First**: Seamless mobile experience
+- 💻 **Desktop Ready**: Full-featured desktop interface  
+- 🎨 **Modern UI**: Clean, professional design with smooth animations
+- 🌙 **Theme Support**: Light and dark mode compatibility
 
-### Installation
+## � **Connect With Me**
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Shivansh1251/Shivanshgarg-portfolio.git
-   cd Shivanshgarg-portfolio
-   ```
+<div align="center">
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+[![Portfolio](https://img.shields.io/badge/Portfolio-shivanshgarg.me-FF6B6B?style=for-the-badge&logo=firefox&logoColor=white)](https://shivanshgarg.me)
+[![Email](https://img.shields.io/badge/Email-shivanshgarg2005@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:shivanshgarg2005@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-Shivansh1251-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shivansh1251)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Shivansh_Garg-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shivansh-garg-22113a294/)
 
-3. **Start development server**
-   ```bash
-   npm run dev
-   ```
+</div>
 
-4. **Open your browser**
-   Navigate to `http://localhost:5173`
+## 🌟 **Featured Projects**
 
-## 📦 Build & Deployment
+- **[DoodleSync](https://github.com/Shivansh1251/DoodleSync)** - Real-time collaborative drawing application
+- **[GitMate-AIAgent](https://github.com/Shivansh1251/GitMate-AIAgent)** - AI-powered GitHub assistant
+- **[Dreamscape](https://github.com/Shivansh1251/Dreamscape)** - Creative digital experience platform
 
-### Build for production
-```bash
-npm run build
-```
-
-### Deploy to GitHub Pages
-```bash
-npm run deploy
-```
-
-The deployment script automatically:
-- Builds the project
-- Adds custom domain (CNAME file)
-- Deploys to GitHub Pages
-
-## 🎨 Customization
-
-### Adding New Projects
-Edit `src/components/Projects.jsx` and add new project objects to the `projects` array:
+## � **What I Do**
 
 ```javascript
-{
-  title: "Your Project Name",
-  desc: "Brief description of your project",
-  link: "https://github.com/yourusername/your-repo"
-}
+const shivansh = {
+  role: "Full-Stack Developer",
+  passions: ["Open Source", "Cloud Computing", "Problem Solving"],
+  currentFocus: "Building scalable web applications",
+  alwaysLearning: true,
+  collaboration: "Always open to interesting projects!"
+};
 ```
 
-### Updating Skills
-Modify the `skills` array in `src/components/Skills.jsx`:
+## � **GitHub Stats**
 
-```javascript
-const skills = [
-  "Your Skill", "Another Skill", "..."
-];
-```
+<div align="center">
 
-### Changing Contact Information
-Update the contact details in `src/components/Contact.jsx`
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Shivansh1251&show_icons=true&theme=radical&hide_border=true)
 
-## 📱 Responsive Design
-
-The portfolio is fully responsive and optimized for:
-- 📱 Mobile devices (320px+)
-- 📟 Tablets (768px+)
-- 💻 Desktops (1024px+)
-- 🖥️ Large screens (1440px+)
-
-## 🔧 Development Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
-| `npm run deploy` | Deploy to GitHub Pages |
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Shivansh1251/Shivanshgarg-portfolio/issues).
-
-## 📧 Contact
-
-**Shivansh Garg**
-- Email: shivanshgarg2005@gmail.com
-- GitHub: [@Shivansh1251](https://github.com/Shivansh1251)
-- LinkedIn: [Shivansh Garg](https://www.linkedin.com/in/shivansh-garg-22113a294/)
-- Website: [shivanshgarg.me](https://shivanshgarg.me)
+</div>
 
 ---
 
-⭐ Star this repo if you like it!
+<div align="center">
+
+**⭐ Star this repository if you found it helpful!**
+
+*Built with ❤️ by Shivansh Garg*
+
+</div>
