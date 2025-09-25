@@ -24,7 +24,7 @@ function App() {
   }, [])
 
   return (
-    <div className="bg-gray-950 text-white text-base animated-gradient min-h-screen relative overflow-hidden">
+    <div className="bg-gray-950 text-white text-base animated-gradient min-h-screen relative overflow-hidden transition-all duration-300">
       {/* Particle Background */}
       <div className="particles">
         {particles.map((particle) => (

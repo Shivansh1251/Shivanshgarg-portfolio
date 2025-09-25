@@ -2,26 +2,40 @@
 export default function Projects() {
   const projects = [
     {
+      title: "DoodleSync",
+      desc: "Realtime Whiteboard + Chatbot application for collaborative drawing and communication.",
+      link: "https://github.com/Shivansh1251/DoodleSync",
+      tech: ["React", "Socket.io", "Node.js", "Canvas API"],
+      gradient: "from-blue-500 to-cyan-500",
+    },
+    {
+      title: "GitMate AI Agent",
+      desc: "AI-powered agent that automatically maintains GitHub contribution streaks and manages repositories.",
+      link: "https://github.com/Shivansh1251/GitMate-AIAgent-MaintainsStreak",
+      tech: ["Python", "AI/ML", "GitHub API", "Automation"],
+      gradient: "from-purple-500 to-pink-500",
+    },
+    {
+      title: "Dreamscape",
+      desc: "An immersive digital experience platform with stunning visuals and interactive elements.",
+      link: "https://github.com/Shivansh1251/Dreamscape",
+      tech: ["JavaScript", "WebGL", "CSS3", "HTML5"],
+      gradient: "from-green-500 to-teal-500",
+    },
+    {
       title: "OasisReserve",
       desc: "A full-stack hotel/spa/salon booking app built with Node.js, Express, MongoDB.",
       link: "https://github.com/Shivansh1251/OasisReserve",
       tech: ["Node.js", "MongoDB", "Express", "React"],
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-orange-500 to-red-500",
     },
-    {
-      title: "Scientific Calculator",
-      desc: "A powerful calculator with advanced math functions and a beautiful UI.",
-      link: "https://github.com/Shivansh1251/Scientific-Calculator",
-      tech: ["JavaScript", "CSS", "HTML"],
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "shivanshgarg.me",
-      desc: "My personal portfolio website built with React + Tailwind + Vite.",
-      link: "https://shivanshgarg.me",
-      tech: ["React", "Tailwind", "Vite"],
-      gradient: "from-green-500 to-teal-500",
-    },
+    // {
+    //   title: "shivanshgarg.me",
+    //   desc: "My personal portfolio website built with React + Tailwind + Vite.",
+    //   link: "https://shivanshgarg.me",
+    //   tech: ["React", "Tailwind", "Vite"],
+    //   gradient: "from-indigo-500 to-purple-500",
+    // },
   ];
 
   return (
@@ -36,7 +50,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3">
           {projects.map((proj, index) => (
             <div
               key={index}

@@ -141,9 +141,9 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 📧 Contact
 
 **Shivansh Garg**
-- Email: shivanshgargme@gmail.com
+- Email: shivanshgarg2005@gmail.com
 - GitHub: [@Shivansh1251](https://github.com/Shivansh1251)
-- LinkedIn: [Shivansh Garg](https://linkedin.com/in/shivansh-garg-12345678)
+- LinkedIn: [Shivansh Garg](https://www.linkedin.com/in/shivansh-garg-22113a294/)
 - Website: [shivanshgarg.me](https://shivanshgarg.me)
 
 ---

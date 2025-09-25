@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,39 +36,49 @@ export default function Navbar() {
           </div>
           
           {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-2">
-            <li>
-              <a href="#about" className="nav-link relative z-10 text-white hover:text-purple-400">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="nav-link relative z-10 text-white hover:text-purple-400">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#skills" className="nav-link relative z-10 text-white hover:text-purple-400">
-                Skills
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="nav-link relative z-10 text-white hover:text-purple-400">
-                Contact
-              </a>
-            </li>
-          </ul>
+          <div className="hidden md:flex items-center gap-6">
+            <ul className="flex gap-2">
+              <li>
+                <a href="#about" className="nav-link relative z-10 text-white hover:text-purple-400">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="nav-link relative z-10 text-white hover:text-purple-400">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#skills" className="nav-link relative z-10 text-white hover:text-purple-400">
+                  Skills
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="nav-link relative z-10 text-white hover:text-purple-400">
+                  Contact
+                </a>
+              </li>
+            </ul>
+            
+            {/* Theme Toggle */}
+            <div className="flex items-center">
+              <ThemeToggle />
+            </div>
+          </div>
 
-          {/* Modern Hamburger Button */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden relative w-8 h-8 flex flex-col justify-center items-center group"
-            aria-label="Toggle navigation menu"
-          >
-            <span className={`block w-6 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : 'group-hover:w-7'}`}></span>
-            <span className={`block w-6 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 mt-1 ${isMenuOpen ? 'opacity-0' : 'group-hover:w-5'}`}></span>
-            <span className={`block w-6 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 mt-1 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'group-hover:w-7'}`}></span>
-          </button>
+          {/* Mobile Menu Controls */}
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
+            <button
+              onClick={toggleMenu}
+              className="relative w-8 h-8 flex flex-col justify-center items-center group"
+              aria-label="Toggle navigation menu"
+            >
+              <span className={`block w-6 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-1.5' : 'group-hover:w-7'}`}></span>
+              <span className={`block w-6 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 mt-1 ${isMenuOpen ? 'opacity-0' : 'group-hover:w-5'}`}></span>
+              <span className={`block w-6 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 transition-all duration-300 mt-1 ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : 'group-hover:w-7'}`}></span>
+            </button>
+          </div>
         </div>
 
         {/* Enhanced Mobile Menu */}
