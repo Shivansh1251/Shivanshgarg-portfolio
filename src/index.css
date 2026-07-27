@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
 /* Modern Font */
 * {
@@ -33,44 +33,59 @@
     background-color: #ffffff !important;
 }
 
+.light .animated-gradient {
+    background: linear-gradient(-45deg,
+            #f8fafc,
+            #f1f5f9,
+            #e2e8f0,
+            #f8fafc) !important;
+    background-size: 400% 400%;
+}
+
 .light .bg-gray-900\/50,
 .light [class*="bg-gray-900/50"] {
-    background-color: rgba(248, 250, 252, 0.8) !important;
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(203, 213, 225, 0.8) !important;
 }
 
 .light .bg-gray-800\/30,
 .light [class*="bg-gray-800/30"] {
-    background-color: rgba(226, 232, 240, 0.6) !important;
+    background-color: rgba(241, 245, 249, 0.8) !important;
 }
 
 .light .bg-gray-800\/50,
 .light [class*="bg-gray-800/50"] {
-    background-color: rgba(226, 232, 240, 0.8) !important;
+    background-color: rgba(241, 245, 249, 0.9) !important;
 }
 
 .light .bg-gray-700\/50,
 .light [class*="bg-gray-700/50"] {
-    background-color: rgba(203, 213, 225, 0.8) !important;
+    background-color: rgba(226, 232, 240, 0.8) !important;
 }
 
 .light .text-white {
-    color: #1a1a1a !important;
+    color: #0f172a !important;
 }
 
 .light .text-gray-400 {
-    color: #64748b !important;
-}
-
-.light .text-gray-300 {
     color: #475569 !important;
 }
 
+.light .text-gray-300 {
+    color: #334155 !important;
+}
+
 .light .border-gray-800 {
-    border-color: rgba(226, 232, 240, 0.8) !important;
+    border-color: rgba(203, 213, 225, 0.8) !important;
 }
 
 .light .border-gray-700 {
     border-color: rgba(203, 213, 225, 0.8) !important;
+}
+
+/* Ensure secondary texts are readable in light mode */
+.light .text-gray-500 {
+    color: #64748b !important;
 }
 
 /* Special light mode adjustments for gradient text */
@@ -85,21 +100,19 @@
     opacity: 0.3 !important;
 }
 
-/* 3D Page Setup */
-html {
-    perspective: 2000px;
-}
-
+/* Base Settings */
 body {
-    transform-style: preserve-3d;
     /* Hide system cursor to show custom striker */
     cursor: none;
+    overflow-x: hidden;
 }
 
 /* Modern cursor styles for different elements */
 /* Use same hidden cursor for interactive controls on desktop; pointer style not needed when hidden */
 a,
-button { cursor: none; }
+button {
+    cursor: none;
+}
 
 /* Input elements */
 input,
@@ -416,24 +429,26 @@ textarea {
 
 /* Enhanced Glassmorphism */
 .glass-card {
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 
-    0 25px 80px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transform-style: preserve-3d;
-  border-radius: 28px;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform-style: preserve-3d;
+    border-radius: 28px;
 }
 
 /* Light mode glass cards */
 .light .glass-card {
-  background: rgba(255, 255, 255, 0.8) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
-  box-shadow: 
-    0 25px 80px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
-}/* Consistent Button Styling */
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(226, 232, 240, 0.8) !important;
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+}
+
+/* Consistent Button Styling */
 .modern-button {
     position: relative;
     overflow: hidden;
@@ -474,15 +489,15 @@ textarea {
     background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.95), rgba(236, 72, 153, 0.85));
     border-radius: 50%;
     animation: particleFloat3d 28s infinite linear;
-    box-shadow: 0 0 18px rgba(168, 85, 247, 0.6), 0 0 6px rgba(236,72,153,0.45);
+    box-shadow: 0 0 18px rgba(168, 85, 247, 0.6), 0 0 6px rgba(236, 72, 153, 0.45);
     opacity: 0.95;
     will-change: transform, opacity;
 }
 
 /* Light theme particle tweak for contrast */
 .light .particle {
-    background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.9), rgba(37,99,235,0.75));
-    box-shadow: 0 0 12px rgba(37,99,235,0.45);
+    background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.9), rgba(37, 99, 235, 0.75));
+    box-shadow: 0 0 12px rgba(37, 99, 235, 0.45);
     opacity: 0.8;
 }
 
@@ -554,27 +569,33 @@ textarea {
 }
 
 /* Disable custom cursor on touch/coarse pointer devices to avoid bad UX */
-@media (hover: none), (pointer: coarse) {
-    html, body, a, button {
+@media (hover: none),
+(pointer: coarse) {
+
+    html,
+    body,
+    a,
+    button {
         cursor: auto !important;
     }
 }
 
 /* Animated React cursor styles (dot + ring) */
-.cursor-dot, .cursor-ring {
+.cursor-dot,
+.cursor-ring {
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
     z-index: 99999;
     transform: translate3d(-9999px, -9999px, 0);
-    transition: transform 160ms cubic-bezier(.2,.8,.2,1), background-color 160ms, opacity 160ms;
+    transition: transform 160ms cubic-bezier(.2, .8, .2, 1), background-color 160ms, opacity 160ms;
 }
 
 .cursor-dot {
     border-radius: 9999px;
-    background: rgba(168,85,247,1);
-    box-shadow: 0 8px 20px rgba(124,58,237,0.35), 0 2px 6px rgba(0,0,0,0.25);
+    background: rgba(168, 85, 247, 1);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35), 0 2px 6px rgba(0, 0, 0, 0.25);
     transform-origin: center;
     transition: transform 100ms linear, background-color 160ms;
 }
@@ -585,9 +606,10 @@ textarea {
     height: 120px;
     border-radius: 9999px;
     /* Invert and desaturate the backdrop for a black/white zone under the cursor */
-    background: rgba(255,255,255,0.02);
+    background: rgba(255, 255, 255, 0.02);
     border: 2px solid #ffffff;
-    mix-blend-mode: difference; /* keep edge visible on both themes */
+    mix-blend-mode: difference;
+    /* keep edge visible on both themes */
     -webkit-backdrop-filter: invert(1) grayscale(1);
     backdrop-filter: invert(1) grayscale(1);
     transform-origin: center;
@@ -600,11 +622,304 @@ textarea {
 
 /* Light theme tweaks */
 .light .cursor-dot {
-    background: rgba(59,130,246,1);
-    box-shadow: 0 8px 20px rgba(59,130,246,0.28), 0 2px 6px rgba(0,0,0,0.08);
+    background: rgba(59, 130, 246, 1);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.28), 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .light .cursor-ring {
-    border-color: rgba(59,130,246,0.9);
-    background: rgba(59,130,246,0.06);
+    border-color: rgba(59, 130, 246, 0.9);
+    background: rgba(59, 130, 246, 0.06);
+}
+
+/* ─────────────────────────────────────────
+   MISSING UTILITIES (previously undefined)
+───────────────────────────────────────── */
+
+/* Gradient text — used everywhere */
+.text-gradient {
+    background: linear-gradient(135deg, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Light mode gradient text */
+.light .text-gradient {
+    background: linear-gradient(135deg, #7c3aed, #db2777);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Floating orb animation — used in Hero floating blobs */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+    }
+
+    33% {
+        transform: translateY(-18px) scale(1.03);
+    }
+
+    66% {
+        transform: translateY(-8px) scale(0.98);
+    }
+}
+
+.float {
+    animation: float 7s ease-in-out infinite;
+}
+
+/* Fade-in-up entrance animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Slow spin — for avatar glow ring */
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+}
+
+/* Animated background gradient — used on root App div */
+@keyframes bgShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-gradient {
+    background: linear-gradient(-45deg,
+            #0f0f23,
+            #1a0a2e,
+            #0d1b3e,
+            #0f0f23);
+    background-size: 400% 400%;
+    animation: bgShift 18s ease infinite;
+}
+
+/* gradientShift — used inside .contact-button */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Line-clamp utility for project descriptions */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Scroll-reveal utility ──────────────────
+   Elements start hidden/translated and
+   gain `.revealed` via IntersectionObserver  */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-up.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   HACKER MODE (Double tap 'H')
+───────────────────────────────────────── */
+body.hacker-theme {
+    background: #000 !important;
+    background-image: none !important;
+    color: #4af626 !important;
+}
+
+body.hacker-theme * {
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #4af626 !important;
+    border-color: #4af626 !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+body.hacker-theme .text-gradient,
+body.hacker-theme .text-highlight {
+    background: none !important;
+    -webkit-text-fill-color: #4af626 !important;
+    color: #4af626 !important;
+}
+
+body.hacker-theme [class*="bg-"],
+body.hacker-theme .glass-card,
+body.hacker-theme .modern-navbar,
+body.hacker-theme .modern-button {
+    background: transparent !important;
+    backdrop-filter: none !important;
+}
+
+body.hacker-theme .glass-card,
+body.hacker-theme .modern-button {
+    border: 1px solid #4af626 !important;
+    background: rgba(74, 246, 38, 0.05) !important;
+}
+
+body.hacker-theme .modern-button:hover,
+body.hacker-theme .glass-card:hover {
+    background: rgba(74, 246, 38, 0.15) !important;
+    transform: none !important;
+    /* disable 3D scaling for a terminal feel */
+}
+
+body.hacker-theme .particle {
+    display: none !important;
+}
+
+/* make image green-hued */
+body.hacker-theme img {
+    filter: sepia(1) hue-rotate(70deg) contrast(1.5) brightness(0.8) !important;
+    border-radius: 0 !important;
+    border: 1px solid #4af626 !important;
+}
+
+body.hacker-theme svg {
+    color: #4af626 !important;
+    fill: currentColor !important;
+}
+
+body.hacker-theme [class*="opacity-"] {
+    opacity: 1 !important;
+}
+
+/* Cursor overrides */
+body.hacker-theme .cursor-dot {
+    background: #4af626 !important;
+    box-shadow: 0 0 10px #4af626 !important;
+}
+
+body.hacker-theme .cursor-ring {
+    background: transparent !important;
+    border-color: #4af626 !important;
+    mix-blend-mode: normal !important;
+    border-radius: 0 !important;
+    /* Square cursor */
+}
+
+@keyframes crtFlicker {
+    0% {
+        opacity: 0.95;
+    }
+
+    5% {
+        opacity: 0.85;
+    }
+
+    10% {
+        opacity: 0.95;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.95;
+    }
+}
+
+@keyframes scanlineDown {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+body.hacker-theme {
+    animation: crtFlicker 0.15s infinite;
+}
+
+.hacker-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.2) 1px,
+            transparent 1px,
+            transparent 2px);
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+    /* Vignette */
+}
+
+.hacker-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, rgba(74, 246, 38, 0.1), transparent);
+    height: 20px;
+    animation: scanlineDown 6s linear infinite;
 }

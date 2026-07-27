@@ -6,6 +6,9 @@ import Projects from './components/Projects'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Cursor from './components/Cursor'
+import Footer from './components/Footer'
+import HackerMode from './components/HackerMode'
+import Terminal from './components/Terminal'
 import { Analytics } from "@vercel/analytics/react"
 function App() {
   const [particles, setParticles] = useState([])
@@ -55,15 +58,19 @@ function App() {
       {/* Animated cursor (renders nothing on touch devices) */}
       <div className="relative">
         <Cursor />
+        <HackerMode />
+        <Terminal />
       </div>
 
       <div className="relative">
         <Navbar />
+        <Analytics />
         <Hero />
         <About />
         <Projects />
         <Skills />
         <Contact />
+        <Footer />
       </div>
     </div>
   )

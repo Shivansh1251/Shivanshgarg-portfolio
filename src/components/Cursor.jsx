@@ -1,106 +1,96 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
+const RING_SIZE = 120 // px
+const DOT_SIZE = 12  // px
+
 export default function Cursor() {
-  // Disable on touch / coarse pointer devices
-  if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
-    return null
-  }
+    const dotRef = useRef(null)
+    const ringRef = useRef(null)
+    const rafRef = useRef(null)
+    const pos = useRef({ x: 0, y: 0 })
+    const target = useRef({ x: 0, y: 0 })
+    const ringScale = useRef(1)
 
-  const dotRef = useRef(null)
-  const ringRef = useRef(null)
-  const rafRef = useRef(null)
-  // Make striker large like a carrom striker
-  const RING_SIZE = 120 // px
-  const DOT_SIZE = 12 // px (keep a small center dot)
-  const pos = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 })
-  const target = useRef({ x: pos.current.x, y: pos.current.y })
-  const ringScale = useRef(1)
+    // Detect coarse pointer (touch) — must come after all hooks
+    const isCoarse =
+        typeof window !== 'undefined' &&
+        window.matchMedia &&
+        window.matchMedia('(pointer: coarse)').matches
 
-  useEffect(() => {
-    const dot = dotRef.current
-    const ring = ringRef.current
-    if (!dot || !ring) return
+    useEffect(() => {
+        if (isCoarse) return // skip on touch devices
 
-    const onMove = (e) => {
-      const x = e.clientX
-      const y = e.clientY
-      target.current.x = x
-      target.current.y = y
-      // move dot instantly
-      dot.style.transform = `translate3d(${x - DOT_SIZE / 2}px, ${y - DOT_SIZE / 2}px, 0)`
-    }
+        const dot = dotRef.current
+        const ring = ringRef.current
+        if (!dot || !ring) return
 
-    // scale ring when hovering interactive elements
-    const handleInteractiveEnter = () => {
-      ringScale.current = 1.25
-      ring.style.transition = 'transform 160ms cubic-bezier(.2,.8,.2,1)'
-      ring.style.transform = `translate3d(${target.current.x - (RING_SIZE / 2)}px, ${target.current.y - (RING_SIZE / 2)}px, 0) scale(${ringScale.current})`
-    }
+        // Position dot immediately on mouse move
+        const onMove = (e) => {
+            target.current.x = e.clientX
+            target.current.y = e.clientY
+            dot.style.transform = `translate3d(${e.clientX - DOT_SIZE / 2}px, ${e.clientY - DOT_SIZE / 2}px, 0)`
+        }
 
-    const handleInteractiveLeave = () => {
-      ringScale.current = 1
-      ring.style.transform = `translate3d(${target.current.x - (RING_SIZE / 2)}px, ${target.current.y - (RING_SIZE / 2)}px, 0) scale(${ringScale.current})`
-    }
+        // Scale ring when hovering interactive elements
+        const onEnter = () => {
+            ringScale.current = 1.25
+        }
+        const onLeave = () => {
+            ringScale.current = 1
+        }
 
-    const addHoverListeners = () => {
-      document.querySelectorAll('a, button, input, textarea, .interactive').forEach((el) => {
-        el.addEventListener('mouseenter', handleInteractiveEnter)
-        el.addEventListener('mouseleave', handleInteractiveLeave)
-      })
-    }
+        const addListeners = () => {
+            document.querySelectorAll('a, button, input, textarea, .interactive').forEach(el => {
+                el.addEventListener('mouseenter', onEnter)
+                el.addEventListener('mouseleave', onLeave)
+            })
+        }
+        const removeListeners = () => {
+            document.querySelectorAll('a, button, input, textarea, .interactive').forEach(el => {
+                el.removeEventListener('mouseenter', onEnter)
+                el.removeEventListener('mouseleave', onLeave)
+            })
+        }
 
-    const removeHoverListeners = () => {
-      document.querySelectorAll('a, button, input, textarea, .interactive').forEach((el) => {
-        el.removeEventListener('mouseenter', handleInteractiveEnter)
-        el.removeEventListener('mouseleave', handleInteractiveLeave)
-      })
-    }
+        document.addEventListener('mousemove', onMove)
+        addListeners()
 
-  document.addEventListener('mousemove', onMove)
-  // Also listen on window to ensure tracking across entire page
-  window.addEventListener('mousemove', onMove)
-    addHoverListeners()
+        // Smooth ring follow via lerp + rAF
+        const lerp = (a, b, n) => (1 - n) * a + n * b
+        const loop = () => {
+            pos.current.x = lerp(pos.current.x, target.current.x, 0.2)
+            pos.current.y = lerp(pos.current.y, target.current.y, 0.2)
+            ring.style.transform = `translate3d(${pos.current.x - RING_SIZE / 2}px, ${pos.current.y - RING_SIZE / 2}px, 0) scale(${ringScale.current})`
+            rafRef.current = requestAnimationFrame(loop)
+        }
+        rafRef.current = requestAnimationFrame(loop)
 
-    // Smooth ring follow using requestAnimationFrame and lerp
-    const lerp = (a, b, n) => (1 - n) * a + n * b
+        return () => {
+            document.removeEventListener('mousemove', onMove)
+            removeListeners()
+            cancelAnimationFrame(rafRef.current)
+        }
+    }, [isCoarse])
 
-    const loop = () => {
-      pos.current.x = lerp(pos.current.x, target.current.x, 0.2)
-      pos.current.y = lerp(pos.current.y, target.current.y, 0.2)
-      ring.style.transform = `translate3d(${pos.current.x - (RING_SIZE / 2)}px, ${pos.current.y - (RING_SIZE / 2)}px, 0) scale(${ringScale.current})`
-      rafRef.current = requestAnimationFrame(loop)
-    }
+    // Don't render on touch devices or SSR
+    if (isCoarse || typeof document === 'undefined') return null
 
-    rafRef.current = requestAnimationFrame(loop)
-
-    return () => {
-      document.removeEventListener('mousemove', onMove)
-      window.removeEventListener('mousemove', onMove)
-      removeHoverListeners()
-      cancelAnimationFrame(rafRef.current)
-    }
-  }, [])
-
-  // Render at document.body to avoid clipping by transformed/overflow containers
-  if (typeof document === 'undefined') return null
-
-  return createPortal(
-    <>
-      {/* Large striker circle that inverts colors beneath using mix-blend-difference */}
-      <div
-        ref={ringRef}
-        className="cursor-ring"
-        aria-hidden
-        style={{ width: RING_SIZE, height: RING_SIZE }}
-      />
-      <div
-        ref={dotRef}
-        className="cursor-dot"
-        aria-hidden
-        style={{ width: DOT_SIZE, height: DOT_SIZE }}
-      />
-    </>,
-    document.body
-  )
+    return createPortal(
+        <>
+            <div
+                ref={ringRef}
+                className="cursor-ring"
+                aria-hidden="true"
+                style={{ width: RING_SIZE, height: RING_SIZE }}
+            />
+            <div
+                ref={dotRef}
+                className="cursor-dot"
+                aria-hidden="true"
+                style={{ width: DOT_SIZE, height: DOT_SIZE }}
+            />
+        </>,
+        document.body
+    )
 }
