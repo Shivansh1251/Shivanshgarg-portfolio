@@ -1,12 +1,3 @@
-/** @type {import('tailwindcss').Config} */
-export default {
-  mode: 'jit',
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
+// Tailwind CSS v4 — configuration is handled via CSS (@import "tailwindcss" in index.css)
+// and the @tailwindcss/vite plugin in vite.config.js. This file is kept for reference only.
+export default {}
